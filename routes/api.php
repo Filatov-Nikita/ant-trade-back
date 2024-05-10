@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -11,4 +12,5 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResources([
     'companies' => CompanyController::class,
+    'products' => ProductController::class,
 ]);
