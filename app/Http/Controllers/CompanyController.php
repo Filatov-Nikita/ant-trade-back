@@ -14,9 +14,14 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return CompanyResource::collection(Company::latest()->paginate(16));
+        $query = Company::latest();
+        return CompanyResource::collection(
+            $request->input('show_all') === '1'
+                ? $query->get()
+                : $query->paginate(16),
+        );
     }
 
     /**

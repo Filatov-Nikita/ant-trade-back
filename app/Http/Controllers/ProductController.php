@@ -13,9 +13,14 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ProductResource::collection(Product::latest()->paginate(15));
+        $query = Product::latest();
+        return ProductResource::collection(
+            $request->input('show_all') === '1'
+                ? $query->get()
+                : $query->paginate(15)
+        );
     }
 
     /**
