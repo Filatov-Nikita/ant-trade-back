@@ -15,10 +15,11 @@ class Operation extends Model
         'sum',
         'type',
         'transaction_type',
+        'company_id',
     ];
 
     public function products(): BelongsToMany {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('price', 'count');;
     }
 
     public function company(): BelongsTo
