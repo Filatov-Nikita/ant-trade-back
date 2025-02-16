@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('operations', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sum');
+            $table->bigInteger('sum')->nullable();
             $table->foreignIdFor(Company::class)->constrained();
             $table->enum('type', [ 'purchase', 'supply' ]);
             $table->enum('transaction_type', [ 'products', 'cash' ]);
