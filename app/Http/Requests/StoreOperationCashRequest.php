@@ -24,6 +24,7 @@ class StoreOperationCashRequest extends FormRequest
         return [
             'sum' => 'required|numeric',
             'company_id' => 'required|exists:companies,id',
+            'comment' => 'nullable|max:255',
             'type' => 'in:purchase,supply',
         ];
     }

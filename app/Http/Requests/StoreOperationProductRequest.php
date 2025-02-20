@@ -24,6 +24,7 @@ class StoreOperationProductRequest extends FormRequest
         return [
             'company_id' => 'required|exists:companies,id',
             'type' => 'in:purchase,supply',
+            'comment' => 'nullable|max:255',
             'products' => 'required|array',
             'products.*.id' => 'required|exists:products,id',
             'products.*.price' => 'required|numeric',
