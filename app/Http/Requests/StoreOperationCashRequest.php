@@ -26,6 +26,8 @@ class StoreOperationCashRequest extends FormRequest
             'company_id' => 'required|exists:companies,id',
             'comment' => 'nullable|max:255',
             'type' => 'in:purchase,supply',
+            'files' => 'nullable|array',
+            'files.*' => 'integer|exists:files,id',
         ];
     }
 }

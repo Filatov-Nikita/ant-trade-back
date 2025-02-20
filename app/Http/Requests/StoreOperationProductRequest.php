@@ -29,6 +29,8 @@ class StoreOperationProductRequest extends FormRequest
             'products.*.id' => 'required|exists:products,id',
             'products.*.price' => 'required|numeric',
             'products.*.count' => 'required|numeric',
+            'files' => 'nullable|array',
+            'files.*' => 'integer|exists:files,id',
         ];
     }
 }
