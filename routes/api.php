@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OperationCashController;
 use App\Http\Controllers\OperationProductController;
 use App\Http\Controllers\OperationController;
+use App\Http\Controllers\FileController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -25,3 +26,5 @@ Route::prefix('operations')
     Route::post('/products', [OperationProductController::class, 'store'])->name('products.store');
     Route::get('/balance', [OperationController::class, 'index'])->name('balance');
 });
+
+Route::post('/upload-file', [FileController::class, 'store'])->name('file.upload');
