@@ -25,6 +25,7 @@ Route::prefix('operations')
     Route::post('/cash', [OperationCashController::class, 'store'])->name('cash.store');
     Route::post('/products', [OperationProductController::class, 'store'])->name('products.store');
     Route::get('/balance', [OperationController::class, 'index'])->name('balance');
+    Route::get('/{operation}', [OperationController::class, 'show'])->name('show');
 });
 
 Route::post('/upload-file', [FileController::class, 'store'])->name('file.upload');

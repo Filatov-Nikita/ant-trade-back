@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Operation;
 use App\Http\Resources\BalanceResource;
+use App\Http\Resources\OperationShowResource;
 use App\Http\Requests\BalanceRequest;
 
 class OperationController extends Controller
@@ -34,5 +35,10 @@ class OperationController extends Controller
             'operations' => $operations,
             'balance' => $balance,
         ]);
+    }
+
+    public function show(Operation $operation)
+    {
+        return new OperationShowResource($operation);
     }
 }
