@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFileRequest;
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\FileResource;
 
 class FileController extends Controller
 {
@@ -16,6 +17,6 @@ class FileController extends Controller
         $fileModel->size_in_bytes = Storage::disk('public')->size($path);
         $fileModel->mime_type = Storage::disk('public')->mimeType($path);
         $fileModel->save();
-        return true;
+        return new FileResource($fileModel);
     }
 }
