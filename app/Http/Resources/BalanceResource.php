@@ -15,7 +15,7 @@ class BalanceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'balance' => $this['balance'],
+            'balance' => $this['balance'] / 100,
             'operations' => BalanceOperationResource::collection(collect($this['operations'])),
         ];
     }

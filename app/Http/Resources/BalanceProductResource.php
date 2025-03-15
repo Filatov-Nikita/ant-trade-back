@@ -17,7 +17,7 @@ class BalanceProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'price' => $this->pivot->price,
+            'price' => $this->pivot->price / 100,
             'count' => $this->pivot->count
         ];
     }

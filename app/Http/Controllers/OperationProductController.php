@@ -18,11 +18,11 @@ class OperationProductController extends Controller
 
         foreach($request->input('products') as $product) {
             $products_map[$product['id']] = [
-                'price' => $product['price'],
+                'price' => $product['price'] * 100,
                 'count' => $product['count'],
             ];
 
-            $sum += $product['count'] * $product['price'];
+            $sum += $product['count'] * $product['price'] * 100;
         }
 
         $operation->fill(

@@ -12,7 +12,8 @@ class OperationCashController extends Controller
     public function store(StoreOperationCashRequest $request) {
         $operation = new Operation();
         $operation->transaction_type = 'cash';
-        $operation->fill($request->only(['sum', 'company_id', 'comment', 'type']));
+        $operation->sum = $request->input('sum') * 100;
+        $operation->fill($request->only(['company_id', 'comment', 'type']));
         $operation->save();
         foreach($request->input('files') as $fileId) {
             $operation->files()->save(File::find($fileId));

@@ -17,7 +17,7 @@ class BalanceOperationResource extends JsonResource
         $item = [
             'id' => $this->id,
             'company' => new CompanyResource($this->company),
-            'sum' => $this->sum,
+            'sum' => $this->sum / 100,
             'type' => $this->type,
             'transaction_type' => $this->transaction_type,
             'created_at' => $this->created_at,
