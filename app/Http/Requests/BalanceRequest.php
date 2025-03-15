@@ -24,7 +24,7 @@ class BalanceRequest extends FormRequest
         return [
             'date_from' => 'required|date',
             'date_to' => 'required|date',
-            'company' => 'numeric'
+            'company' => 'nullable|numeric'
         ];
     }
 }
