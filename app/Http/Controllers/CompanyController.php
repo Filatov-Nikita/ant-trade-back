@@ -16,12 +16,8 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Company::latest();
-        return CompanyResource::collection(
-            $request->input('show_all') === '1'
-                ? $query->get()
-                : $query->paginate(16),
-        );
+        $companies = Company::latest()->get();
+        return CompanyResource::collection($companies);
     }
 
     /**

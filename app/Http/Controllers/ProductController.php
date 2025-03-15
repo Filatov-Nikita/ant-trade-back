@@ -15,12 +15,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::latest();
-        return ProductResource::collection(
-            $request->input('show_all') === '1'
-                ? $query->get()
-                : $query->paginate(15)
-        );
+        $products = Product::latest()->get();
+        return ProductResource::collection($products);
     }
 
     /**
