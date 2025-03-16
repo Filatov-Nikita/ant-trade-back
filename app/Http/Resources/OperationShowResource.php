@@ -18,13 +18,12 @@ class OperationShowResource extends JsonResource
             'id' => $this->id,
             'type' => $this->type,
             'transaction_type' => $this->transaction_type,
-            'sum' => $this->sum,
+            'sum' => $this->sum / 100,
             'company' => new CompanyResource($this->company),
             'files' => FileResource::collection($this->files),
-            'products' => ProductResource::collection($this->products),
+            'products' => BalanceProductResource::collection($this->products),
             'comment' => $this->comment,
             'created_at' => $this->created_at,
-            // 'children' => self::collection($this->children),
         ];
     }
 }
