@@ -18,6 +18,7 @@ class OperationShowResource extends JsonResource
             'id' => $this->id,
             'type' => $this->type,
             'transaction_type' => $this->transaction_type,
+            'payment_source' => $this->payment_source,
             'sum' => $this->sum / 100,
             'company' => new CompanyResource($this->company),
             'files' => FileResource::collection($this->files),

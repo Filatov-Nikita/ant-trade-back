@@ -26,6 +26,7 @@ class StoreOperationCashRequest extends FormRequest
             'company_id' => 'required|exists:companies,id',
             'comment' => 'nullable|max:65500',
             'type' => 'in:purchase,supply',
+            'payment_source' => 'in:checking-account,self-collection,products',
             'files' => 'nullable|array',
             'files.*' => 'integer|exists:files,id',
         ];

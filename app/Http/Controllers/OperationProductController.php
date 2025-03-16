@@ -30,6 +30,7 @@ class OperationProductController extends Controller
             ->safe()
             ->merge([
                 'transaction_type' => 'products',
+                'payment_source' => 'products',
                 'sum' => $sum,
             ])
             ->except('products'),

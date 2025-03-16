@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(Company::class)->constrained();
             $table->enum('type', [ 'purchase', 'supply' ]);
             $table->enum('transaction_type', [ 'products', 'cash' ]);
+            $table->enum('payment_source', [ 'checking-account', 'self-collection', 'products' ]);
             $table->text('comment')->nullable();
             $table->timestamps();
         });

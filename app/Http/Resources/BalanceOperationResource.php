@@ -20,6 +20,7 @@ class BalanceOperationResource extends JsonResource
             'sum' => $this->sum / 100,
             'type' => $this->type,
             'transaction_type' => $this->transaction_type,
+            'payment_source' => $this->payment_source,
             'created_at' => $this->created_at,
         ];
 

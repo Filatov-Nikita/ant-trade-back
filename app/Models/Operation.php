@@ -18,6 +18,7 @@ class Operation extends Model
         'transaction_type',
         'company_id',
         'comment',
+        'payment_source',
     ];
 
     public function products(): BelongsToMany {
