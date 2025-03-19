@@ -41,4 +41,8 @@ class OperationController extends Controller
     {
         return new OperationShowResource($operation);
     }
+
+    public function destroy(Operation $operation) {
+        $operation->delete();
+    }
 }
