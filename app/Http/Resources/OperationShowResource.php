@@ -24,6 +24,7 @@ class OperationShowResource extends JsonResource
             'files' => FileResource::collection($this->files),
             'products' => BalanceProductResource::collection($this->products),
             'comment' => $this->comment,
+            'date_from' => $this->date_from,
             'created_at' => $this->created_at,
         ];
     }

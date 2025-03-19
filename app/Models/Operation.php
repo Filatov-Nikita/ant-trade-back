@@ -19,6 +19,7 @@ class Operation extends Model
         'company_id',
         'comment',
         'payment_source',
+        'date_from'
     ];
 
     public function products(): BelongsToMany {

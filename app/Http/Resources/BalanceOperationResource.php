@@ -21,6 +21,7 @@ class BalanceOperationResource extends JsonResource
             'type' => $this->type,
             'transaction_type' => $this->transaction_type,
             'payment_source' => $this->payment_source,
+            'date_from' => $this->date_from,
             'created_at' => $this->created_at,
         ];
 

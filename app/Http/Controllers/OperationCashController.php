@@ -13,7 +13,13 @@ class OperationCashController extends Controller
         $operation = new Operation();
         $operation->transaction_type = 'cash';
         $operation->sum = $request->input('sum') * 100;
-        $operation->fill($request->only(['company_id', 'comment', 'type', 'payment_source']));
+        $operation->fill($request->only([
+            'company_id',
+            'comment',
+            'type',
+            'payment_source',
+            'date_from',
+        ]));
         $operation->save();
         foreach($request->input('files') as $fileId) {
             $operation->files()->save(File::find($fileId));

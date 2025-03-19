@@ -29,6 +29,7 @@ class StoreOperationProductRequest extends FormRequest
             'products.*.id' => 'required|exists:products,id',
             'products.*.price' => 'required|numeric',
             'products.*.count' => 'required|numeric',
+            'date_from' => 'required|date_format:Y-m-d',
             'files' => 'nullable|array',
             'files.*' => 'integer|exists:files,id',
         ];

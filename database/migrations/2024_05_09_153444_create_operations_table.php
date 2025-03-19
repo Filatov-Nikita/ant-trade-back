@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('transaction_type', [ 'products', 'cash' ]);
             $table->enum('payment_source', [ 'checking-account', 'self-collection', 'products' ]);
             $table->text('comment')->nullable();
+            $table->date('date_from');
             $table->timestamps();
         });
     }

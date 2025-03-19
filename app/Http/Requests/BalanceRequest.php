@@ -22,8 +22,8 @@ class BalanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_from' => 'required|date',
-            'date_to' => 'required|date',
+            'date_from' => 'required|date_format:Y-m-d',
+            'date_to' => 'required|date_format:Y-m-d',
             'company' => 'nullable|numeric'
         ];
     }
