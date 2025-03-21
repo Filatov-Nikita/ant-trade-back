@@ -25,6 +25,7 @@ Route::prefix('operations')
     Route::post('/cash', [OperationCashController::class, 'store'])->name('cash.store');
     Route::put('/{operation}/cash', [OperationCashController::class, 'update'])->name('cash.update');
     Route::post('/products', [OperationProductController::class, 'store'])->name('products.store');
+    Route::put('/{operation}/products', [OperationProductController::class, 'update'])->name('products.update');
     Route::get('/balance', [OperationController::class, 'index'])->name('balance');
     Route::get('/{operation}', [OperationController::class, 'show'])->name('show');
     Route::delete('/{operation}', [OperationController::class, 'destroy'])->name('destroy');
