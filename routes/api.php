@@ -23,6 +23,7 @@ Route::prefix('operations')
 ->name('operations.')
 ->group(function() {
     Route::post('/cash', [OperationCashController::class, 'store'])->name('cash.store');
+    Route::put('/{operation}/cash', [OperationCashController::class, 'update'])->name('cash.update');
     Route::post('/products', [OperationProductController::class, 'store'])->name('products.store');
     Route::get('/balance', [OperationController::class, 'index'])->name('balance');
     Route::get('/{operation}', [OperationController::class, 'show'])->name('show');
