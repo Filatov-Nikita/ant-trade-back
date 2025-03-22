@@ -19,4 +19,9 @@ class FileController extends Controller
         $fileModel->save();
         return new FileResource($fileModel);
     }
+
+    public function destroy(File $file) {
+        Storage::disk($file->disk)->delete($file->path);
+        $file->delete();
+    }
 }

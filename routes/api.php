@@ -32,3 +32,4 @@ Route::prefix('operations')
 });
 
 Route::post('/upload-file', [FileController::class, 'store'])->name('file.upload');
+Route::delete('/remove-file/{file}', [FileController::class, 'destroy'])->name('file.destroy');
