@@ -7,6 +7,7 @@ use App\Models\Operation;
 use App\Http\Resources\BalanceResource;
 use App\Http\Resources\OperationShowResource;
 use App\Http\Requests\BalanceRequest;
+use App\Events\OperationRemoved;
 
 class OperationController extends Controller
 {
@@ -44,5 +45,6 @@ class OperationController extends Controller
 
     public function destroy(Operation $operation) {
         $operation->delete();
+        OperationRemoved::dispatch($operation);
     }
 }
