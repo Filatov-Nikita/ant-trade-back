@@ -27,7 +27,12 @@ class RemoveUnusedFiles implements ShouldQueue
      */
     public function handle(): void
     {
-        $files = File::whereNull('domain_id')->orWhereNull('domain_type')->get();
+        $files = File::where(function($query) {
+            $query->whereNull('domain_id')->orWhereNull('domain_type');
+        })
+        ->whereDate('created_at', '<=', now()->subDays(30)->toDateTimeString())
+        ->get();
+
         $files->each(function($file) {
             Storage::disk($file->disk)->delete($file->path);
             $file->delete();
