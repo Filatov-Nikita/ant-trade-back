@@ -13,10 +13,10 @@ class OperationController extends Controller
 {
     public function index(BalanceRequest $request)
     {
-        $operations = Operation::latest()
+        $operations = Operation::latest('date_from')
             ->with(['company', 'products'])
-            ->whereDate('created_at', '>=', $request->input('date_from'))
-            ->whereDate('created_at', '<=', $request->input('date_to'))
+            ->whereDate('date_from', '>=', $request->input('date_from'))
+            ->whereDate('date_from', '<=', $request->input('date_to'))
             ->when($request->input('company'), function($query, $company) {
                 $query->where('company_id', $company);
             })
