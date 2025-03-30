@@ -23,16 +23,22 @@ class OperationController extends Controller
             ->get();
 
         $balance = 0;
+        $outcome_total = 0;
+        $income_total = 0;
 
         foreach($operations as $operation) {
             if($operation->type === 'purchase') {
                 $balance -= $operation->sum;
+                $outcome_total += $operation->sum;
             } else {
                 $balance += $operation->sum;
+                $income_total += $operation->sum;
             }
         }
 
         return new BalanceResource([
+            'outcome_total' => $outcome_total,
+            'income_total' => $income_total,
             'operations' => $operations,
             'balance' => $balance,
         ]);

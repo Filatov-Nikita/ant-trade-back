@@ -16,6 +16,8 @@ class BalanceResource extends JsonResource
     {
         return [
             'balance' => $this['balance'] / 100,
+            'outcome_total' => $this['outcome_total'] / 100,
+            'income_total' => $this['income_total'] / 100,
             'operations' => BalanceOperationResource::collection(collect($this['operations'])),
         ];
     }
